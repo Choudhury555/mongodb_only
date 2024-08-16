@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 mongoose.connect("mongodb://0.0.0.0:27017",{
     dbName:"mongodb_practice"
 }).then(()=>{
-    console.log("DataBase Cnnected");
+    console.log("DataBase Connected");
 }).catch((err)=>{
     console.log(err);
 })

@@ -1,0 +1,29 @@
+open mongodb ==> type mongosh
+
+commands
+________
+show dbs;//show all data bases
+use cap;//it will create a new database if doesn't exist and then will switch to that db
+show collections;//it will show all the collection
+
+//C:Create
+db.col1.insertOne({name:"Abhisek",favColor:"Blue"});//It will create a collection named "col1" if doesn't exist then it will insert the data we have given
+db.col2.insertMany([{name:"Choudhury"},{name:"Sinu"},{name:"Chira"}]);//insert many at one shot
+
+//R:Read
+db.col1.find();//it will show the records "col1"
+db.col2.findOne();//it will show the first records in the collection
+db.col2.find({name:"Choudhury"});//find specific value e.g. in this case name:"Choudhury"
+db.col2.find({name:"Choudhury"}).limit(2);//if there are multiple name:"Choudhury" then it will find only first two(limit to 2)
+db.col2.findOne({name:"Choudhury"});//if there are multiple name:"Choudhury" then it will find the first one
+
+//U:Update
+db.col2.updateOne({name:"Choudhury"},{$set:{name:"Choudhury Abhisek Panda"}});//It will update first value which it finds from "Choudhury" to "Choudhury Abhisek Panda"
+db.col2.updateMany({name:"Choudhury"},{$set:{name:"Choudhury Abhisek Panda"}});//It will update all the occurrences which it find from "Choudhury" to "Choudhury Abhisek Panda"
+
+//D:Delete
+db.col2.deleteOne({});//it will delete the first record from the collection
+db.col2.deleteOne({name:"Sinu"});//it will delete the given value
+db.col2.deleteMany({name:"Choudhury Abhisek Panda"});//It will all the occurrences of the given value
+db.col2.deleteMany({});/It will delete all the records in the collection "col2"
+
